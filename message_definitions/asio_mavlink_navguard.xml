@@ -1,0 +1,321 @@
+<?xml version='1.0'?>
+<mavlink>
+  <version>3</version>
+  <dialect>0</dialect>
+
+  <enums>
+    <enum name="MAV_CMD">
+      <description>Additional Commands to be executed by the MAV. According to ASIO ICD</description>
+      <entry value="40601" name="MAV_CMD_ASIO_SET_SENSOR" hasLocation="false" isDestination="false">
+        <description>Selecting sensor. Require reset after set</description>
+        <param index="1" label="sensor_mode" enum="ASIO_SENSOR"></param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
+
+      <entry value="40602" name="MAV_CMD_ASIO_SET_REC" hasLocation="false" isDestination="false">
+        <description>Selecting logging mode. Require reset after set</description>
+        <param index="1" label="rec_mode" enum="ASIO_REC"></param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+     </entry>
+
+     <entry value="40603" name="MAV_CMD_ASIO_SET_NAV_MODE" hasLocation="false" isDestination="false">
+        <description>Selecting navigation mode. Require reset after set</description>
+        <param index="1" label="nav_mode" enum="ASIO_NAV_MODE"></param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
+
+     <entry value="40604" name="MAV_CMD_ASIO_SET_INIT_LOC" hasLocation="true" isDestination="false">
+        <description>Selecting initial location. set 0 to clear</description>
+        <param index="1">Empty</param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5" label="Latitude">Latitude</param>
+        <param index="6" label="Longitude">Longitude</param>
+        <param index="7" label="Altitude" units="m">Altitude (Note: not implemented on Asio side)</param>
+     </entry>
+
+     <entry value="40605" name="MAV_CMD_ASIO_RESET" hasLocation="false" isDestination="false">
+        <description>Reset</description>
+        <param index="1">Empty</param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+     </entry>
+
+      <entry value="40606" name="MAV_CMD_ASIO_CAL" hasLocation="false" isDestination="false">
+        <description>Initiate calibration of installation angles</description>
+        <param index="1">Empty</param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
+          
+      <entry value="40607" name="MAV_CMD_ASIO_SET_SLAM_MODE" hasLocation="false" isDestination="false">
+        <description>Enabling Force SLAM mode</description>
+        <param index="1" label="slam_mode" enum="ASIO_SLAM_MODE"></param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
+      
+      <entry value="40608" name="MAV_CMD_ASIO_SET_SLAM_TIMEOUT" hasLocation="false" isDestination="false">
+        <description>Set timeout to SLAM mode. After timeout, if GPS is valid, take GPS data, othewise keep SLAM</description>
+        <param index="1" label="slam_timeout" units="sec"></param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
+
+      <entry value="40609" name="MAV_CMD_ASIO_SET_MAP_WARNING_RANGE" hasLocation="false" isDestination="false">
+        <description>Range in meters around the current drone location to send "edge of map" warning</description>
+        <param index="1" label="map_warning_range" units="m"></param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
+
+<entry value="40610" name="MAV_CMD_ASIO_SET_DB_REC" hasLocation="false" isDestination="false">
+        <description>Not Implemented - DO NOT USE</description>
+        <param index="1" label="db_rec_mode" enum="ASIO_DB_REC"></param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+     </entry>
+    </enum>
+
+    <enum name="ASIO_SENSOR">
+      <entry value="0" name="ASIO_SENSOR_UNKNOWN">
+        <description/>
+      </entry>
+      <entry value="1" name="ASIO_SENSOR_DAY">
+        <description/>
+      </entry>
+      <entry value="2" name="ASIO_SENSOR_NIGHT">
+        <description/>
+      </entry>
+      <entry value="3" name="ASIO_SENSOR_AUTO">
+        <description>Not Implemented</description>
+      </entry>
+    </enum>
+
+    <enum name="ASIO_REC">
+      <entry value="0" name="ASIO_REC_NONE">
+        <description/>
+      </entry>
+      <entry value="1" name="ASIO_REC_TELEM_ONLY">
+        <description/>
+      </entry>
+      <entry value="2" name="ASIO_REC_IMAGE_ONLY">
+        <description>not implemented</description>
+      </entry>
+      <entry value="3" name="ASIO_REC_TELEM_IMAGE">
+        <description/>
+      </entry>
+    </enum>
+
+    <enum name="ASIO_NAV_MODE">
+      <entry value="0" name="ASIO_NAV_MODE_UNKNOWN">
+        <description/>
+      </entry>
+      <entry value="1" name="ASIO_NAV_MODE_FORCE_TO_NO_GPS">
+        <description>do not use gps at all, if slam is used for more than X Sec. will try to read gps pos, othewise will keep slam (pre define parameter [s])</description>
+      </entry>
+      <entry value="2" name="ASIO_NAV_MODE_GPS_ON_TAKEOFF">
+        <description>if gps is valid, use it when close to home (pre define parameter [m]). 
+        or if slam where used for more than X Sec (pre define parameter [s])</description>
+      </entry>
+      <entry value="3" name="ASIO_NAV_MODE_USE_GPS_WHEN_FIX">
+        <description>use GPS when valid</description>
+      </entry>
+    </enum>
+
+    <enum name="ASIO_SLAM_MODE">
+      <entry value="0" name="ASIO_SLAM_MODE_UNKNOWN">
+        <description/>
+      </entry>
+      <entry value="1" name="ASIO_SLAM_MODE_AUTO">
+        <description/>
+      </entry>
+      <entry value="2" name="ASIO_FORCE_SLAM_MODE">
+        <description/>
+      </entry>
+    </enum>
+
+    <enum name="ASIO_NAV_STATE">
+      <entry value="0" name="ASIO_NAV_STATE_NONE">
+        <description>Should be only on boot</description>
+      </entry>
+      <entry value="1" name="ASIO_NAV_STATE_ANCHOR">
+        <description>GeoReference is valid</description>
+      </entry>
+      <entry value="2" name="ASIO_NAV_STATE_SLAM">
+        <description>GeoReference is not valid, sys is now in SLAM mode</description>
+      </entry>
+      <entry value="3" name="ASIO_NAV_STATE_ON_GROUND">
+        <description>Indicates NO_GPS_MODE before takeoff. keeps initial position for first few meters after takeoff</description>
+      </entry>
+      <entry value="4" name="ASIO_NAV_STATE_ANCHOR_ON_TAKEOFF">
+        <description>GeoReference is valid while using GPS as output during takeoff</description>
+      </entry>
+    </enum>
+
+    <enum name="ASIO_SYS_STATE">
+      <entry value="0" name="ASIO_SYS_STATE_INIT">
+        <description>Should be only on startup. Do not takeoff in init state</description>
+      </entry>
+      <entry value="1" name="ASIO_SYS_STATE_READY">
+        <description>System is ready and fully operational</description>
+      </entry>
+      <entry value="2" name="ASIO_SYS_STATE_FAULT">
+        <description>Not Implemented</description>
+      </entry>
+    </enum>
+  
+    <enum name="ASIO_NAV_OUTPUT">
+      <entry value="0" name="ASIO_NAV_OUTPUT_GPS">
+        <description>GPS data is outputted as the navigation solution - can be during takeoff or after SLAM timeout</description>
+      </entry>
+      <entry value="1" name="ASIO_NAV_OUTPUT_OPTICAL">
+        <description>Optical solution data is outputted as the navigation solution</description>
+      </entry>
+    </enum>
+    
+    <enum name="GPS_JAMMING_STATE">
+      <entry value="0" name="GPS_JAMMING_STATE_OK">
+        <description>GPS valid</description>
+      </entry>
+      <entry value="1" name="GPS_JAMMING_STATE_WARNNING">
+        <description>Not Implemented</description>
+      </entry>
+      <entry value="2" name="GPS_JAMMING_STATE_JAMMED">
+        <description>GPS is jammed valid</description>
+      </entry>
+    </enum>
+      
+    <enum name="ASIO_ERROR" bitmask="true">
+      <entry value="1" name="ASIO_ERROR_CRITICAL">
+        <description>Critical system error</description>
+      </entry>
+      <entry value="2" name="ASIO_ERROR_GENERAL_WARNNING">
+        <description>Warning - Nav solution still available, but might be limited</description>
+      </entry>
+      <entry value="4" name="ASIO_ERROR_TELEM">
+        <description>Critical telemetry (YAW, etc) from UAS is not received</description>
+      </entry>
+      <entry value="8" name="ASIO_ERROR_DAY_SENSOR">
+        <description>Day sensor fault, will be sent together with ASIO_ERROR_CRITICAL</description>
+      </entry>
+      <entry value="16" name="ASIO_ERROR_NIGHT_SENSOR">
+        <description>Night sensor fault, will be sent together with ASIO_ERROR_CRITICAL</description>
+      </entry>
+      <entry value="32" name="ASIO_ERROR_ANCHOR">
+        <description>Not Implemented</description>
+      </entry>
+      <entry value="64" name="ASIO_ERROR_TEMPERATURE">
+        <description>Not Implemented</description>
+      </entry>
+      <entry value="128" name="ASIO_ERROR_LOGGING">
+        <description>Not Implemented</description>
+      </entry>
+    </enum>
+    
+    <enum name="ASIO_CALIBRATION_STATE">
+      <entry value="0" name="ASIO_CALIBRATION_STATE_UNKNOWN">
+        <description/>
+      </entry>
+      <entry value="1" name="ASIO_CALIBRATION_STATE_IDLE">
+        <description/>
+      </entry>
+      <entry value="2" name="ASIO_CALIBRATION_STATE_PROCESS">
+        <description>Calibration procedure is in progress</description>
+      </entry>
+    </enum>
+    
+    <enum name="COMPASS_POINT"  bitmask="true">
+      <entry value="1" name="COMPASS_POINT_NORTH">
+        <description/>
+      </entry>
+      <entry value="2" name="COMPASS_POINT_NORTH_EAST">
+        <description/>
+      </entry>
+      <entry value="4" name="COMPASS_POINT_EAST">
+        <description/>
+      </entry>
+      <entry value="8" name="COMPASS_POINT_SOUTH_EAST">
+        <description/>
+      </entry>
+      <entry value="16" name="COMPASS_POINT_SOUTH">
+        <description/>
+      </entry>
+      <entry value="32" name="COMPASS_POINT_SOUTH_WEST">
+        <description/>
+      </entry>
+      <entry value="64" name="COMPASS_POINT_WEST">
+        <description/>
+      </entry>
+      <entry value="128" name="COMPASS_POINT_NORTH_WEST">
+        <description/>
+      </entry>
+    </enum>
+  </enums>
+
+  <messages>
+    <message id="40601" name="ASIO_STATUS">
+      <description>Asio status report</description>
+      <field type="uint8_t" name="nav_state" enum="ASIO_NAV_STATE"></field>
+      <field type="uint8_t" name="nav_output" enum="ASIO_NAV_OUTPUT"></field>
+      <field type="uint8_t" name="gps_jamming_state" enum="GPS_JAMMING_STATE"></field>
+      <field type="uint8_t" name="active_sensor" enum="ASIO_SENSOR"></field>
+      <field type="uint8_t" name="active_rec" enum="ASIO_REC"></field>
+      <field type="uint8_t" name="active_db_rec" enum="ASIO_DB_REC"></field>
+      <field type="uint8_t" name="active_nav" enum="ASIO_NAV_MODE">Current NAV_MODE</field>
+      <field type="uint8_t" name="active_slam" enum="ASIO_SLAM_MODE">Current SLAM_MODE</field>
+      <field type="uint8_t" name="battery" units="%">Set to 255 for unknown/irrelevant</field>
+      <field type="int16_t" name="temperature" units="cdegC">Internal temperature of the system, set to -1 if invalid</field>
+      <field type="uint8_t" name="sys_state" enum="ASIO_SYS_STATE">Current system state</field>
+      <field type="uint32_t" name="error" enum="ASIO_ERROR"></field>
+      <field type="uint8_t" name="reserved"></field>
+      <field type="uint8_t" name="map_warning" enum="COMPASS_POINT"></field>
+      <field type="float" name="pitch_offset" units="deg">Pitch offset</field>
+      <field type="float" name="roll_offset" units="deg">Roll offset</field>
+      <field type="uint8_t" name="calibration_state" enum="ASIO_CALIBRATION_STATE"></field>
+      <field type="float" name="reserved_2"></field>
+      <field type="uint32_t" name="version">asio software version</field>
+    </message>
+
+  </messages>
+</mavlink>
