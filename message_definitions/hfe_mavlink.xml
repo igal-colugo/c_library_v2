@@ -1,0 +1,30 @@
+<?xml version='1.0'?>
+
+<mavlink>
+
+  <version>3</version>
+  <dialect>0</dialect>
+
+  <messages>
+
+    <message id="50601" name="DA35EFI_STATUS">
+
+      <description>DA35EFI status report</description>
+      <field type="uint16_t" name="seconds"></field>
+      <field type="float" name="pulse_width_1"></field>
+      <field type="float" name="pulse_width_2"></field>
+      <field type="uint16_t" name="rpm"></field>
+      <field type="uint8_t" name="engine"></field>
+      <field type="float" name="barometer"></field>
+      <field type="float" name="coolant"></field>
+      <field type="float" name="tps"></field>
+      <field type="float" name="battery_voltage"></field>
+      <field type="float" name="injector_duty_cycle"></field>
+      <field type="float" name="fuel_flow_rate_instantaneos"></field>
+      <field type="float" name="scaled_flow_rate"></field>
+
+    </message>
+
+  </messages>
+
+</mavlink>
