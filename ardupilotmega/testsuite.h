@@ -16,6 +16,7 @@ static void mavlink_test_common(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_uAvionix(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_icarous(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_asio_mavlink_navguard(uint8_t, uint8_t, mavlink_message_t *last_msg);
+static void mavlink_test_currawong_mavlink(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_hfe_mavlink(uint8_t, uint8_t, mavlink_message_t *last_msg);
 static void mavlink_test_ardupilotmega(uint8_t, uint8_t, mavlink_message_t *last_msg);
 
@@ -25,6 +26,7 @@ static void mavlink_test_all(uint8_t system_id, uint8_t component_id, mavlink_me
     mavlink_test_uAvionix(system_id, component_id, last_msg);
     mavlink_test_icarous(system_id, component_id, last_msg);
     mavlink_test_asio_mavlink_navguard(system_id, component_id, last_msg);
+    mavlink_test_currawong_mavlink(system_id, component_id, last_msg);
     mavlink_test_hfe_mavlink(system_id, component_id, last_msg);
     mavlink_test_ardupilotmega(system_id, component_id, last_msg);
 }
@@ -34,6 +36,7 @@ static void mavlink_test_all(uint8_t system_id, uint8_t component_id, mavlink_me
 #include "../uAvionix/testsuite.h"
 #include "../icarous/testsuite.h"
 #include "../asio_mavlink_navguard/testsuite.h"
+#include "../currawong_mavlink/testsuite.h"
 #include "../hfe_mavlink/testsuite.h"
 
 

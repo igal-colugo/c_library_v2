@@ -1,0 +1,20 @@
+<?xml version='1.0'?>
+<mavlink>
+  <version>3</version>
+  <dialect>0</dialect>
+
+  <messages>
+
+    <message id="60601" name="CE367_STATUS">
+
+      <description>CE367 status report</description>
+
+      <field type="float" name="ecu_throttle"></field>
+      <field type="uint16_t" name="ecu_rpm"></field>
+      <field type="uint32_t" name="ecu_fuel_used"></field>
+
+    </message>
+
+  </messages>
+  
+</mavlink>
