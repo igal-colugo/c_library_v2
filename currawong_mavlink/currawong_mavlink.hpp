@@ -30,6 +30,16 @@ constexpr auto MAVLINK_VERSION = 3;
 // ENUM DEFINITIONS
 
 
+/** @brief  */
+enum class CE367_STARTER
+{
+    STOP=0, /*  | */
+    START=1, /*  | */
+    RESET=2, /*  | */
+};
+
+//! CE367_STARTER ENUM_END
+constexpr auto CE367_STARTER_ENUM_END = 3;
 
 
 } // namespace currawong_mavlink

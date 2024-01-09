@@ -3,6 +3,39 @@
   <version>3</version>
   <dialect>0</dialect>
 
+  <enums>
+
+    <enum name="MAV_CMD">
+
+      <description>Additional Commands to be executed by the MAV. According to Currawong ICD</description>
+
+      <entry value="60601" name="MAV_CMD_CE367_SET_STARTER" hasLocation="false" isDestination="false">
+        <description>Start,stop,reset starter command</description>
+        <param index="1" label="starter_mode" enum="CE367_STARTER"></param>
+        <param index="2">Empty</param>
+        <param index="3">Empty</param>
+        <param index="4">Empty</param>
+        <param index="5">Empty</param>
+        <param index="6">Empty</param>
+        <param index="7">Empty</param>
+      </entry>
+
+    </enum>
+
+    <enum name="CE367_STARTER">
+      <entry value="0" name="CE367_STARTER_STOP">
+        <description/>
+      </entry>
+      <entry value="1" name="CE367_STARTER_START">
+        <description/>
+      </entry>
+      <entry value="2" name="CE367_STARTER_RESET">
+        <description/>
+      </entry>
+    </enum>
+
+  </enums>
+
   <messages>
 
     <message id="60601" name="CE367_STATUS">
@@ -16,5 +49,5 @@
     </message>
 
   </messages>
-  
+
 </mavlink>
